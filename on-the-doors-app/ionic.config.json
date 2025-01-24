@@ -1,0 +1,7 @@
+{
+  "name": "on-the-doors",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

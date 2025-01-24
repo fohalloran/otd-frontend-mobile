@@ -1,0 +1,11 @@
+.spinner{
+    justify-self: center;
+}
+
+#loading-box{
+    padding:5rem;
+    vertical-align: middle;
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+}

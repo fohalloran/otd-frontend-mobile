@@ -1,0 +1,17 @@
+  <div class="error-container" *ngIf="status=='errored'">
+    <div id="loading-box" >
+      <div>
+        <ion-text>Unfortunaetly we ran into an error, please try again later :(</ion-text>
+      </div>
+    </div>
+  </div>
+  <div class="loading-container" *ngIf="status=='loading'">
+    <div id="loading-box">
+      <div class="spinner">
+        <ion-spinner name="circular"></ion-spinner>
+      </div>
+      <div>
+        <ion-text>Loading...</ion-text>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+<ion-card class="container" (click)="pressed()">
+  <ion-img class="picture"
+    src={{imageURL}}></ion-img>
+  <ion-card-title class="title">
+    {{title}}
+  </ion-card-title>
+  <div class="info">
+    <div class="info-item">
+      <ion-icon name="location-outline"></ion-icon>
+      <ion-text class="details"> {{location}}</ion-text>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="hourglass-outline"></ion-icon>
+      <ion-text class="details"> {{startTime|startTime}}</ion-text>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="walk-outline"></ion-icon>
+      <ion-text class="details"> {{distance}}</ion-text>
+    </div>
+  </div>
+  <div class="price-container">
+    <ion-text class="price">£{{price}}</ion-text>
+  </div>
+</ion-card>

@@ -1,0 +1,24 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true" *ngIf="status=='active'">
+  <div class="ticket-list upcoming-events">
+    <h1>Upcoming events:</h1>
+    <div class="card-container">
+      <app-ticket-card *ngFor="let ticket of upcomingTickets" id={{ticket.id}} location={{ticket.locationName}}
+        title={{ticket.eventName}} startTime={{ticket.startTime}} imageURL={{ticket.imageUrl}}></app-ticket-card>
+    </div>
+  </div>
+
+  <div class="ticket-list past-events">
+    <h1>Past events:</h1>
+    <div class="card-container">
+      <app-ticket-card *ngFor="let ticket of pastTickets" id={{ticket.id}} location={{ticket.locationName}}
+        title={{ticket.eventName}} startTime={{ticket.startTime}} imageURL={{ticket.imageUrl}}
+        [past]=ticket.used></app-ticket-card>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="status!='active'">
+  <app-errored [status]="status"></app-errored>
+</ion-content>

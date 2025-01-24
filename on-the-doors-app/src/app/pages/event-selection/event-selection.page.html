@@ -1,0 +1,46 @@
+<app-header></app-header>
+<ion-content class="container" [fullscreen]="true" *ngIf="status=='active'">
+  <div class="distance">
+    <div class="padded-top centre">
+      <ion-text class="text">Show me events within {{maxDistance/1000}}km</ion-text>
+    </div>
+    <ion-range class="selector padded-sides" [pin]="true" aria-label="Maximum distance"
+      (ionChange)="onIonChange($event)" [min]="1" [max]="5"></ion-range>
+    <div class="label">
+      <ion-text class="label padded">Move the slider above to change the maximum distance</ion-text>
+    </div>
+
+    <div class="padded">
+      <ion-text class="left padded bold">Events near you:</ion-text>
+    </div>
+  </div>
+
+
+  <div class="card-container">
+    <app-card *ngFor="let event of eventsInArea" id={{event.id}} location={{event.location}} title={{event.name}}
+      distance="{{(event.dist/1000) | number:'0.0-2'}}km away" price={{event.ticketPrice}} startTime={{event.startTime}}
+      imageURL={{event.imageURL}}></app-card>
+  </div>
+  <div class="padded centre" *ngIf="noEvents">
+    <ion-text>Sorry, no events were found, try increasing the maximum distance</ion-text>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="funnel-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="cash-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="navigate-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="status!='active'">
+  <app-errored [status]="status"></app-errored>
+</ion-content>

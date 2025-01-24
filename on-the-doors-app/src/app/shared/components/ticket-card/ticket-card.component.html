@@ -1,0 +1,24 @@
+<ion-card class="container" (click)="pressed()">
+  <div class="left">
+    <ion-card-title class="title">
+      <ion-text [style.text-decoration]="(past) ? 'line-through':'none'">{{title}}</ion-text>
+    </ion-card-title>
+    <div class="info">
+      <div class="info-item">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-text class="details" [style.text-decoration]="(past) ? 'line-through':'none'"> {{location}}</ion-text>
+      </div>
+
+      <div class="info-item">
+        <ion-icon name="hourglass-outline"></ion-icon>
+        <ion-text class="details" [style.text-decoration]="(past) ? 'line-through':'none'"> {{startTime|startTime}}</ion-text>
+      </div>
+
+    </div>
+  </div>
+    <div class="right">
+      <ion-img class="picture" src={{imageURL}}></ion-img>
+    </div>
+
+
+</ion-card>

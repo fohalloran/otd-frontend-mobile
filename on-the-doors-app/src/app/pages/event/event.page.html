@@ -1,0 +1,102 @@
+<app-header [backButton]="true"></app-header>
+
+
+<ion-content [fullscreen]="true" *ngIf="status=='active'">
+  <div>
+    <ion-grid [fixed]="true" class="container">
+      <ion-row class="row picture">
+        <ion-img class="header-picture" src={{currentEvent.Image_URL}}></ion-img>
+      </ion-row>
+
+      <div class="info">
+        <ion-row class="row padded">
+          <ion-text class="title">{{currentEvent.Name}}</ion-text>
+        </ion-row>
+
+        <div class="details-container padded">
+          <ion-row class="row">
+            <ion-text class="weight-50"><ion-icon
+                name="location-outline"></ion-icon>{{currentEvent.Location}}</ion-text>
+          </ion-row>
+          <ion-row class="row">
+            <ion-icon name="hourglass-outline"></ion-icon>
+            <ion-text class="details"> {{currentEvent.Start_time|startTime}}</ion-text>
+          </ion-row>
+          <ion-row class="row">
+            <ion-icon name="walk-outline"></ion-icon>
+            <ion-text class="details"> 1.5km</ion-text>
+          </ion-row>
+        </div>
+      </div>
+
+      <ion-row class="row padded">
+        <ion-text class="larger bold">Description</ion-text>
+        <ion-text class="description">{{currentEvent.Description}}</ion-text>
+      </ion-row>
+      <div>
+        <ion-row class="row padded">
+          <ion-text class="large bold">£{{currentEvent.Ticket_price}}</ion-text>
+        </ion-row>
+      </div>
+
+
+      <div class="padded">
+        <ion-row>
+          <ion-col>Ticket Quantity</ion-col>
+          <ion-col>
+            <ion-row class="border">
+              <ion-col size="3" class="border">
+                <ion-button size="small" class="ticket-number-btn"
+                  (click)="decrementTicketCount()">-</ion-button>
+              </ion-col>
+              <ion-col size="3" class="border"> 
+                <ion-text class="ticket-number">
+                  {{ticketCount}}
+                </ion-text>
+              </ion-col>
+              <ion-col size="3" class="border">
+                  <ion-button size="small" class="ticket-number-btn"
+                    (click)="incrementTicketCount()">+</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-text>Subtotal: </ion-text></ion-col>
+          <ion-col><ion-text>£{{ticketCount * + currentEvent.Ticket_price}}</ion-text></ion-col>
+        </ion-row>
+      </div>
+
+      <ion-row class="button">
+        <ion-button id="buy-ticket" (click)="goToBuyTicket()" class="buy-button">Buy</ion-button>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-modal trigger="buy-ticket" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Buy Tickets</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input label="This is where you'll buy the tickets...link to stripe?" labelPlacement="stacked" type="text"
+            placeholder="Your name" [(ngModel)]="name"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="status!='active'">
+  <app-errored [status]="status"></app-errored>
+</ion-content>

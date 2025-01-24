@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="row r1 centre">
+      <ion-img class="centre" src="assets/icon/funky2-long.png" alt="On The Door logo" style="width:50%;text-align:center;"></ion-img>
+    </div>
+
+    <div class="row r2 padded ">
+      <ion-text class="welcome">Welcome</ion-text>
+      <br>
+      <ion-text class="welcome">Back</ion-text>
+    </div>
+
+    <div class="row r4 centre">
+      <ion-input lines="none" type="text" placeholder="Email" class="form-input"></ion-input>
+      <ion-input lines="none" type="password" class="form-input" placeholder="Password"></ion-input>
+      <ion-button (click)="login()" id="login" expand="block" shape="round" lines="none" type="password" class="form-button" placeholder="Password">Log in</ion-button>
+      <ion-button (click)="signup()" id="signup" expand="block" shape="round" lines="none" type="password" fill="outline" class="form-button" placeholder="Password">Sign up</ion-button>
+    </div>
+
+  </div>
+</ion-content>

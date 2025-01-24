@@ -1,0 +1,13 @@
+<app-header [backButton]="true"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="swiper">
+      <ion-text class="text">When you're ready to use the ticket, swipe the bar all the way to the right</ion-text>
+      <ion-range [(ngModel)]="sliderPosition" class="selector padded-sides"  aria-label="Maximum distance"
+      (ionChange)="onIonChange($event)"></ion-range>
+    </div>
+  </div>
+  
+
+</ion-content>

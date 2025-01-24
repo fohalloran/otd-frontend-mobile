@@ -1,0 +1,19 @@
+.logo{
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 50%;
+}
+.header{
+    background-color: var(--ion-color-primary);
+}
+
+.back-button{
+    color:var(--ion-color-dark);
+    position: fixed;
+    top:10%;
+}

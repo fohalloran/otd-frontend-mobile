@@ -1,0 +1,21 @@
+.swiper{
+    padding:1.5rem;
+}
+
+.swiper > ion-range {
+    --bar-height: 1.5rem;
+    --bar-border-radius: 1rem;
+    --knob-background: var(--ion-color-medium);
+    --bar-background-active: var(--ion-color-secondary);
+}
+
+.swiper > text{
+    text-align: center;
+    font-size: large;
+    color:var(--ion-color-primary)
+}
+
+.container{
+    display: grid;
+}
+
